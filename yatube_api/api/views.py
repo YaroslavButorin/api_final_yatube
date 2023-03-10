@@ -7,8 +7,8 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
 from posts.models import Group, Post
 from .permissions import IsAuthorOrReadOnly
-from .serializers import PostSerializer, CommentSerializer, GroupSerializer, \
-    FollowSerializer
+from .serializers import (PostSerializer, CommentSerializer, GroupSerializer,
+                          FollowSerializer)
 
 
 class PostViewSet(ModelViewSet):
@@ -42,7 +42,7 @@ class CommentViewSet(ModelViewSet):
         )
 
     def get_queryset(self):
-        return self.get_post().comments
+        return self.get_post().comments.all()
 
 
 class FollowViewSet(mixins.ListModelMixin,

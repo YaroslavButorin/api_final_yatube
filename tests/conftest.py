@@ -39,7 +39,7 @@ assert filename in root_dir_content, (
     f'В корне проекта не найден файл `{filename}.`'
 )
 
-with open(filename, 'r', errors='ignore') as f:
+with open(r'E:\Dev\api_final_yatube/'+filename, 'r', errors='ignore') as f:
     file = f.read()
     assert file != default_md, (
         f'Не забудьте оформить `{filename}.`'
